@@ -1,0 +1,57 @@
+{
+  "name": "@pzj01/utils",
+  "type": "module",
+  "version": "0.1.0",
+  "packageManager": "pnpm@9.15.1",
+  "description": "pzj01's Typescript utils",
+  "author": "Peng Zhao jun <pzj01.me@gmail.com>",
+  "license": "MIT",
+  "funding": "https://github.com/pzj01/utils",
+  "homepage": "https://github.com/pzj01/utils#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pzj01/utils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pzj01/utils/issues"
+  },
+  "keywords": [
+    "utils"
+  ],
+  "main": "dist/index.mjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "vitest",
+    "release": "bumpp && pnpm publish",
+    "prepare": "simple-git-hooks"
+  },
+  "dependencies": {
+    "throttle-debounce": "^5.0.2",
+    "tinycolor2": "^1.6.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.5.1",
+    "@types/throttle-debounce": "^5.0.2",
+    "@types/tinycolor2": "^1.4.6",
+    "eslint": "^9.21.0",
+    "jiti": "^2.4.2",
+    "simple-git-hooks": "^2.11.1",
+    "typescript": "^5.8.2",
+    "unbuild": "^3.5.0",
+    "vitest": "^3.0.7"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm test && pnpm exec lint-staged"
+  },
+  "lint-staged": {
+    "*": "pnpm lint:fix"
+  }
+}
