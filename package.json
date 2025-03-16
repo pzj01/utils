@@ -31,7 +31,8 @@
     "lint:fix": "eslint . --fix",
     "test": "vitest",
     "release": "bumpp && pnpm publish --access public",
-    "prepare": "simple-git-hooks"
+    "prepare": "simple-git-hooks",
+    "prepublishOnly": "pnpm build"
   },
   "dependencies": {
     "throttle-debounce": "^5.0.2",
