@@ -30,7 +30,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "vitest",
-    "release": "bumpp && pnpm publish",
+    "release": "bumpp && pnpm publish --access public",
     "prepare": "simple-git-hooks"
   },
   "dependencies": {
