@@ -1,7 +1,7 @@
 {
   "name": "@pzj01/utils",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "packageManager": "pnpm@9.15.1",
   "description": "pzj01's Typescript utils",
   "author": "Peng Zhao jun <pzj01.me@gmail.com>",
