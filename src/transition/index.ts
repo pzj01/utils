@@ -1,4 +1,4 @@
-import { lerp } from '../math'
+import { lerpWithEasing } from '../math'
 import { createStopwatch } from '../time'
 
 /**
@@ -12,11 +12,17 @@ import { createStopwatch } from '../time'
  * transition(0, 100, 1000, value => console.log(value))
  * ```
  */
-export function transition(from: number, to: number, duration: number, callback: (value: number) => void) {
+export function transition(
+  from: number,
+  to: number,
+  duration: number,
+  callback: (value: number) => void,
+  easing?: (t: number) => number,
+) {
   const stopwatch = createStopwatch()
   function frame() {
     const elapsed = stopwatch.read()
-    callback(lerp(from, to, elapsed / duration))
+    callback(lerpWithEasing(from, to, elapsed / duration, easing))
     if (elapsed >= duration)
       return
     requestAnimationFrame(frame)

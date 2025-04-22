@@ -1,6 +1,7 @@
 import type { Fn } from '../types'
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 import { transition } from '.'
+import { easeIn } from '../math'
 
 // Mock requestAnimationFrame
 function mockRaf(callback: Fn) {
@@ -58,6 +59,24 @@ describe('transition function', () => {
 
     vi.advanceTimersByTime(16)
     expect(callback).toHaveBeenCalledWith(-48.4)
+
+    vi.advanceTimersByTime(1000)
+    expect(callback).toHaveBeenCalledWith(to)
+  })
+
+  it('easing transition', () => {
+    const callback = vi.fn()
+    const from = 0
+    const to = 100
+    const duration = 1000 // 1秒
+
+    transition(from, to, duration, callback, easeIn)
+
+    vi.advanceTimersByTime(16)
+    expect(callback).toHaveBeenCalledWith(0.025599999999999998)
+
+    vi.advanceTimersByTime(484)
+    expect(callback).toHaveBeenCalledWith(24.601599999999998)
 
     vi.advanceTimersByTime(1000)
     expect(callback).toHaveBeenCalledWith(to)
