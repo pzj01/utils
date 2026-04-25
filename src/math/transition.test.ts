@@ -1,7 +1,7 @@
 import type { Fn } from '../types'
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
-import { transition } from '.'
-import { easeIn } from '../math'
+import { easeIn } from '.'
+import { transition } from './transition'
 
 // Mock requestAnimationFrame
 function mockRaf(callback: Fn) {

@@ -1,4 +1,4 @@
-import { toNumber } from '../base'
+import { toNumber } from '../is'
 
 /**
  * @description Clamp value within the specified range / 限制值在指定范围内
@@ -23,7 +23,7 @@ export const clamp = (value: number, min: number, max: number) => Math.min(max, 
 export const sum = (...args: number[] | number[][]) => args.flat().reduce((a, b) => a + b, 0)
 
 /**
- * @description Generate a random number within the specified range / 生成指定范围内的随机数
+ * @description Generate a random number within the specified range，including the boundary values / 生成指定范围内的随机数，包含边界值
  * @param min Minimum value / 最小值
  * @param max Maximum value / 最大值
  * @example

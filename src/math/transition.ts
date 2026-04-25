@@ -1,5 +1,5 @@
-import { lerpWithEasing } from '../math'
-import { createStopwatch } from '../time'
+import { lerpWithEasing } from '.'
+import { elapsed, now } from '../date'
 
 /**
  * @description Transition from one value to another over a period of time / 在一段时间内从一个值过渡到另一个值
@@ -19,11 +19,11 @@ export function transition(
   callback: (value: number) => void,
   easing?: (t: number) => number,
 ) {
-  const stopwatch = createStopwatch()
+  const startTime = now()
   function frame() {
-    const elapsed = stopwatch.read()
-    callback(lerpWithEasing(from, to, elapsed / duration, easing))
-    if (elapsed >= duration)
+    const elapsedTime = elapsed(startTime)
+    callback(lerpWithEasing(from, to, elapsedTime / duration, easing))
+    if (elapsedTime >= duration)
       return
     requestAnimationFrame(frame)
   }

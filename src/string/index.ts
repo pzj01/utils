@@ -1,5 +1,4 @@
 import { random } from '../math'
-import { StringOrArray } from '../types'
 
 const RANGE = {
   UPPER: ['A'.charCodeAt(0), 'Z'.charCodeAt(0)] as const, // A-Z
@@ -27,13 +26,13 @@ function ensureCharset(ranges: readonly LetterRange[]) {
   const cacheKey = ranges.map(([start, end]) => `${start}-${end}`).join(',')
 
   if (!CHARSET_CACHE.has(cacheKey)) {
-    let charset = ''
+    const charset: string[] = []
     for (const [start, end] of ranges) {
       for (let code = start; code <= end; code++) {
-        charset += String.fromCodePoint(code)
+        charset.push(String.fromCodePoint(code))
       }
     }
-    CHARSET_CACHE.set(cacheKey, charset)
+    CHARSET_CACHE.set(cacheKey, charset.join())
   }
 
   return CHARSET_CACHE.get(cacheKey)!
@@ -79,3 +78,14 @@ export const randomAlphanumeric = () => randomChar(ALPHANUMERIC)
 export const randomSymbol = () => randomChar(SYMBOL)
 export const randomHex = () => randomChar(HEX)
 export const randomPrintable = () => randomChar(PRINTABLE)
+
+export function randomString(length: number, charset: string | string[]) {
+  const charsetString = Array.isArray(charset) ? charset.join('') : charset
+  const result = []
+  for (let i = 0; i < length; i++) {
+    result.push(randomIn(charsetString))
+  }
+  return result.join('')
+}
+
+export const randomRangeString = (length: number, ranges: LetterRange[]) => randomString(length, ensureCharset(ranges))

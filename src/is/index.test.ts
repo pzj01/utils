@@ -1,5 +1,38 @@
 import { expect, it } from 'vitest'
-import { isBigInt, isBoolean, isDate, isFalsy, isFunction, isMap, isNumber, isObject, isPrimitive, isPromise, isRegExp, isSet, isString, isSymbol, isTruthy, isWeakMap, isWeakSet } from '.'
+import { getRawType, isBigInt, isBoolean, isDate, isFalsy, isFunction, isMap, isNumber, isObject, isPrimitive, isPromise, isRegExp, isSet, isString, isSymbol, isTruthy, isWeakMap, isWeakSet, toBoolean, toNumber, toString } from '.'
+
+it('toString', () => {
+  expect(toString(1)).toBe('[object Number]')
+  expect(toString('')).toBe('[object String]')
+  expect(toString(true)).toBe('[object Boolean]')
+  expect(toString(null)).toBe('[object Null]')
+  expect(toString(undefined)).toBe('[object Undefined]')
+})
+
+it('getRawType', () => {
+  expect(getRawType(1)).toBe('number')
+  expect(getRawType('')).toBe('string')
+  expect(getRawType(true)).toBe('boolean')
+  expect(getRawType(null)).toBe('null')
+  expect(getRawType(undefined)).toBe('undefined')
+})
+
+it('toBoolean', () => {
+  expect(toBoolean(1)).toBeTruthy()
+  expect(toBoolean('')).toBeFalsy()
+  expect(toBoolean({})).toBeTruthy()
+  expect(toBoolean(null)).toBeFalsy()
+  expect(toBoolean(undefined)).toBeFalsy()
+})
+
+it('toNumber', () => {
+  expect(toNumber('1')).toBe(1)
+  expect(toNumber('')).toBe(0)
+  expect(toNumber(true)).toBe(1)
+  expect(toNumber(false)).toBe(0)
+  expect(toNumber(null)).toBe(0)
+  expect(toNumber(undefined)).toBeNaN()
+})
 
 it('isString', () => {
   const name = 'pzj01'
@@ -21,7 +54,9 @@ it('isBoolean', () => {
 })
 
 it('isBigInt', () => {
+  // eslint-disable-next-line no-loss-of-precision
   expect(isBigInt(BigInt(9999999999999999))).toBe(true)
+  // eslint-disable-next-line no-loss-of-precision
   expect(isBigInt(9999999999999999)).toBe(false)
 })
 
@@ -33,6 +68,7 @@ it('isSymbol', () => {
 it('isFunction', () => {
   expect(isFunction(() => {})).toBe(true)
   expect(isFunction(() => {})).toBe(true)
+  // eslint-disable-next-line no-new-func
   expect(isFunction(new Function())).toBe(true)
 })
 
@@ -47,6 +83,7 @@ it('isPrimitive', () => {
   expect(isPrimitive('hello')).toBe(true)
   expect(isPrimitive(1)).toBe(true)
   expect(isPrimitive(true)).toBe(true)
+  // eslint-disable-next-line no-loss-of-precision
   expect(isPrimitive(BigInt(9999999999999999))).toBe(true)
   expect(isPrimitive(Symbol('hello'))).toBe(true)
   expect(isPrimitive(null)).toBe(true)
@@ -64,6 +101,7 @@ it('isDate', () => {
 
 it('isRegExp', () => {
   expect(isRegExp(/hello/)).toBe(true)
+  // eslint-disable-next-line prefer-regex-literals
   expect(isRegExp(new RegExp('hello'))).toBe(true)
 })
 
