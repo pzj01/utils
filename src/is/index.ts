@@ -1,7 +1,3 @@
-export const isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined'
-// eslint-disable-next-line node/prefer-global/process
-export const isNode = typeof process !== 'undefined' && process.versions != null && process.versions.node != null
-
 /**
  * @description call Object.prototype.toString with value
  * @example
