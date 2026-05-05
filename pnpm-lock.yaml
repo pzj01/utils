@@ -8,9 +8,9 @@ importers:
 
   .:
     dependencies:
-      '@types/node':
-        specifier: ^25.6.0
-        version: 25.6.0
+      '@types/deno':
+        specifier: ^2.5.0
+        version: 2.5.0
       throttle-debounce:
         specifier: ^5.0.2
         version: 5.0.2
@@ -21,6 +21,9 @@ importers:
       '@antfu/eslint-config':
         specifier: ^4.5.1
         version: 4.5.1(@typescript-eslint/utils@8.26.0(eslint@9.21.0(jiti@2.4.2))(typescript@5.8.2))(@vue/compiler-sfc@3.5.13)(eslint@9.21.0(jiti@2.4.2))(typescript@5.8.2)(vitest@3.0.7(@types/debug@4.1.12)(@types/node@25.6.0)(jiti@2.4.2)(yaml@2.7.0))
+      '@types/node':
+        specifier: ^25.6.0
+        version: 25.6.0
       '@types/throttle-debounce':
         specifier: ^5.0.2
         version: 5.0.2
@@ -695,6 +698,9 @@ packages:
 
   '@types/debug@4.1.12':
     resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
+
+  '@types/deno@2.5.0':
+    resolution: {integrity: sha512-g8JS38vmc0S87jKsFzre+0ZyMOUDHPVokEJymSCRlL57h6f/FdKPWBXgdFh3Z8Ees9sz11qt9VWELU9Y9ZkiVw==}
 
   '@types/doctrine@0.0.9':
     resolution: {integrity: sha512-eOIHzCUSH7SMfonMG1LsC2f8vxBFtho6NGBznK41R84YzPuvSBzrhEps33IsQiOW9+VL6NQ9DbjQJznk/S4uRA==}
@@ -3087,6 +3093,8 @@ snapshots:
   '@types/debug@4.1.12':
     dependencies:
       '@types/ms': 2.1.0
+
+  '@types/deno@2.5.0': {}
 
   '@types/doctrine@0.0.9': {}
 
