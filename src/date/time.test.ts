@@ -6,6 +6,10 @@ it('now', () => {
   expect(typeof now()).toBe('number')
 })
 
+it('elapsed', () => {
+  expect(elapsed(now())).toBeGreaterThan(0)
+})
+
 it('createStopwatch', () => {
   vi.stubGlobal('performance', { now: () => 1000 })
   const stopwatch = createStopwatch()

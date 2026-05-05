@@ -1,5 +1,5 @@
 import { hasPerformance } from '../env'
-import { timestamp } from './date'
+import { timestamp } from './utils'
 
 export const now = () => hasPerformance ? performance.now() : timestamp()
 
