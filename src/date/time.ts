@@ -1,6 +1,13 @@
 import { hasPerformance } from '../env'
 import { timestamp } from './utils'
 
+/**
+ * @description Get the current high-resolution timestamp / 获取当前高精度时间戳
+ * @example
+ * ```
+ * now() // 12345.678
+ * ```
+ */
 export const now = () => hasPerformance ? performance.now() : timestamp()
 
 /**

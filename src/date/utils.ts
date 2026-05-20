@@ -1,5 +1,12 @@
 import { random } from '../math'
 
+/**
+ * @description Get the current timestamp / 获取当前时间戳
+ * @example
+ * ```
+ * timestamp() // 1700000000000
+ * ```
+ */
 export const timestamp = () => Date.now()
 
 /**
@@ -18,4 +25,16 @@ export function randomDate(startTime: Date, endTime: Date) {
   const endTimestamp = endTime.getTime()
   const randomTimestamp = random(startTimestamp, endTimestamp)
   return new Date(randomTimestamp)
+}
+
+/**
+ * @description Format a date to a locale date string / 将日期格式化为本地日期字符串
+ * @param date Date to format / 要格式化的日期
+ * @example
+ * ```
+ * formatDate(new Date('2024-01-01')) // '1/1/2024'
+ * ```
+ */
+export function formatDate(date: Date) {
+  return date.toLocaleDateString()
 }

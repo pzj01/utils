@@ -6,4 +6,4 @@
  * flatten([1, [2, [3]]]) // [1, 2, 3]
  * ```
  */
-export const flattenDeep = <T = number>(array: any[]): T[] => array.flat(Infinity)
+export const flattenDeep = <T>(array: any[]): T[] => array.flat(Infinity)

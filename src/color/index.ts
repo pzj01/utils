@@ -1,6 +1,15 @@
 import type { ColorInput } from 'tinycolor2'
 import tinycolor from 'tinycolor2'
 
+/**
+ * @description Convert a color value to a tinycolor instance / 将颜色值转换为 tinycolor 实例
+ * @param color Color value / 颜色值
+ * @example
+ * ```
+ * toColor('red')
+ * toColor('#FF0000')
+ * ```
+ */
 export const toColor = (color: ColorInput) => tinycolor(color)
 
 /**

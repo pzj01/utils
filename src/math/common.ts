@@ -34,6 +34,18 @@ export const sum = (...args: number[] | number[][]) => args.flat().reduce((a, b)
  * ```
  */
 export const random = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1) + min)
+/**
+ * @description Truncate or round a number to a specified decimal places / 截断或四舍五入数字到指定小数位数
+ * @param value Number to process / 要处理的数字
+ * @param digit Number of decimal places / 小数位数
+ * @param round Whether to round / 是否四舍五入
+ * @example
+ * ```
+ * toDecimals(3.14159, 2) // 3.14
+ * toDecimals(3.14159, 2, true) // 3.14
+ * toDecimals(3.14559, 2, true) // 3.15
+ * ```
+ */
 export function toDecimals(value: number, digit: number, round: boolean = false) {
   if (!Number.isFinite(value))
     return Number.NaN

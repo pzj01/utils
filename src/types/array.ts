@@ -11,10 +11,40 @@ export type BuildTuple<N, E = 0, Tuple extends unknown[] = []> =
     ? Tuple
     : BuildTuple<N, E, [...Tuple, E]>
 
+/**
+ * @description Push an element to the end of a tuple / 在元组末尾添加一个元素
+ * @example
+ * ```
+ * type Arr = Push<[1, 2], 3> // [1, 2, 3]
+ * ```
+ */
 export type Push<T extends unknown[], E> = [...T, E]
+
+/**
+ * @description Remove the last element of a tuple / 删除元组的最后一个元素
+ * @example
+ * ```
+ * type Arr = Pop<[1, 2, 3]> // [1, 2]
+ * ```
+ */
 export type Pop<T extends unknown[]> = T extends [...infer Pre, infer _] ? Pre : never
 
+/**
+ * @description Remove the first element of a tuple / 删除元组的第一个元素
+ * @example
+ * ```
+ * type Arr = Shift<[1, 2, 3]> // [2, 3]
+ * ```
+ */
 export type Shift<T extends unknown[]> = T extends [infer _, ...infer Rest] ? Rest : never
+
+/**
+ * @description Add an element to the beginning of a tuple / 在元组开头添加一个元素
+ * @example
+ * ```
+ * type Arr = Unshift<[2, 3], 1> // [1, 2, 3]
+ * ```
+ */
 export type Unshift<T extends unknown[], E> = [E, ...T]
 
 /**

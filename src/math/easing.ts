@@ -1,3 +1,6 @@
+/**
+ * @description Linear easing (no acceleration) / 线性缓动（无加速）
+ */
 export const linear = (t: number) => t
 
 /**

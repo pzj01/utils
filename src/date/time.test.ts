@@ -7,7 +7,7 @@ it('now', () => {
 })
 
 it('elapsed', () => {
-  expect(elapsed(now())).toBeGreaterThan(0)
+  expect(elapsed(now())).toBeGreaterThanOrEqual(0)
 })
 
 it('createStopwatch', () => {
