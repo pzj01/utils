@@ -3,6 +3,9 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "bundler",
+    "paths": {
+      "~/*": ["./src/*"]
+    },
     "types": ["@types/deno", "@types/node"],
     "strict": true,
     "esModuleInterop": true
