@@ -18,14 +18,62 @@
   "keywords": [
     "utils"
   ],
+  "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/index.d.mts",
       "default": "./dist/index.mjs"
-    }
+    },
+    "./array": {
+      "types": "./dist/array.d.mts",
+      "default": "./dist/array.mjs"
+    },
+    "./browser": {
+      "types": "./dist/browser.d.mts",
+      "default": "./dist/browser.mjs"
+    },
+    "./color": {
+      "types": "./dist/color.d.mts",
+      "default": "./dist/color.mjs"
+    },
+    "./date": {
+      "types": "./dist/date.d.mts",
+      "default": "./dist/date.mjs"
+    },
+    "./env": {
+      "types": "./dist/env.d.mts",
+      "default": "./dist/env.mjs"
+    },
+    "./function": {
+      "types": "./dist/function.d.mts",
+      "default": "./dist/function.mjs"
+    },
+    "./is": {
+      "types": "./dist/is.d.mts",
+      "default": "./dist/is.mjs"
+    },
+    "./math": {
+      "types": "./dist/math.d.mts",
+      "default": "./dist/math.mjs"
+    },
+    "./node": {
+      "types": "./dist/node.d.mts",
+      "default": "./dist/node.mjs"
+    },
+    "./object": {
+      "types": "./dist/object.d.mts",
+      "default": "./dist/object.mjs"
+    },
+    "./string": {
+      "types": "./dist/string.d.mts",
+      "default": "./dist/string.mjs"
+    },
+    "./types": {
+      "types": "./dist/types.d.mts",
+      "default": "./dist/types.mjs"
+    },
+    "./package.json": "./package.json"
   },
-  "main": "dist/index.mjs",
-  "module": "dist/index.mjs",
   "types": "dist/index.d.mts",
   "files": [
     "dist"
@@ -36,24 +84,34 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "vitest",
+    "test:types": "vitest --typecheck --run",
     "release": "bumpp && pnpm publish --access public",
     "prepare": "simple-git-hooks",
     "prepublishOnly": "pnpm build"
   },
+  "peerDependencies": {
+    "jiti": ">=2"
+  },
+  "peerDependenciesMeta": {
+    "jiti": {
+      "optional": true
+    }
+  },
   "dependencies": {
-    "@types/deno": "^2.5.0",
-    "@types/node": "^25.6.0",
     "throttle-debounce": "^5.0.2",
     "tinycolor2": "^1.6.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.5.1",
+    "@types/deno": "^2.5.0",
+    "@types/node": "^25.6.0",
     "@types/throttle-debounce": "^5.0.2",
     "@types/tinycolor2": "^1.4.6",
     "bumpp": "^10.1.0",
     "eslint": "^9.21.0",
     "jiti": "^2.4.2",
     "lint-staged": "^15.5.0",
+    "publint": "^0.3.25",
     "simple-git-hooks": "^2.11.1",
     "tsdown": "^0.22.0",
     "typescript": "^5.8.2",

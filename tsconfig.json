@@ -8,7 +8,8 @@
     },
     "types": ["@types/deno", "@types/node"],
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "skipLibCheck": true
   },
   "include": ["src/**/*", "scripts/**/*"],
   "exclude": ["node_modules", "dist"]
